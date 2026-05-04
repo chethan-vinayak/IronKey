@@ -79,12 +79,14 @@ ironkey/
 ### Prerequisites
 
 - [Bun](https://bun.sh) (recommended) or Node.js 20+
+- linux : curl -fsSL https://bun.sh/install | bash
+- windows : powershell -c "irm bun.sh/install.ps1 | iex"
 
 ### Install & Run
 
 ```bash
 # Clone
-git clone https://github.com/<your-username>/ironkey.git
+git clone https://github.com/chethan-vinayak/ironkey.git
 cd ironkey
 
 # Install dependencies
