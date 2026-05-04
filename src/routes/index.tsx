@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Eye, EyeOff, Shield, ShieldAlert, ShieldCheck, Copy, RefreshCw, Check, AlertTriangle, Sparkles, KeyRound } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -20,11 +20,15 @@ function Index() {
   const [password, setPassword] = useState("");
   const [show, setShow] = useState(false);
   const [copied, setCopied] = useState<string | null>(null);
-  const [suggestions, setSuggestions] = useState<string[]>(() => [
-    generateStrongPassword(18),
-    generatePassphrase(),
-    generateStrongPassword(24),
-  ]);
+  const [suggestions, setSuggestions] = useState<string[]>([]);
+
+  useEffect(() => {
+    setSuggestions([
+      generateStrongPassword(18),
+      generatePassphrase(),
+      generateStrongPassword(24),
+    ]);
+  }, []);
 
   const analysis = useMemo(() => analyzePassword(password), [password]);
 
